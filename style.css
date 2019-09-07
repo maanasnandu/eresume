@@ -1,0 +1,278 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  height: 100vh;
+  background: #333 url("./20181223_144624.jpg") no-repeat center center / cover;
+  color: rgb(235, 229, 229);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 6rem 3.5rem;
+}
+
+h1 {
+  font-weight: 400;
+  margin: 0.4rem;
+  font-size: 5.5rem;
+  font-family: "Bree Serif", serif;
+}
+
+/*cursor*/
+.txt-type > .txt {
+  border-right: 0.2rem solid rgb(218, 213, 213);
+}
+
+@media (min-width: 1200px) {
+  h1 {
+    font-size: 5.5rem;
+  }
+  /*Reload animation*/
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .img {
+    animation: fadeIn 3s 3s ease-in;
+  }
+
+  body:nth-child(1) {
+    animation: fadeIn 2.5s 2.5s ease-in;
+  }
+
+  body:nth-child(2) {
+    animation: fadeIn 0.5s 1s backwards;
+  }
+
+  body:nth-child(3) {
+    animation: fadeIn 0.5s 1.5s backwards;
+  }
+}
+
+@media (max-width: 700px) {
+  /*Reload animation*/
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .img {
+    animation: fadeIn 3s 3s ease-in;
+  }
+
+  body:nth-child(1) {
+    animation: fadeIn 2.5s 2.5s ease-in;
+  }
+
+  body:nth-child(2) {
+    animation: fadeIn 0.5s 1s backwards;
+  }
+
+  body:nth-child(3) {
+    animation: fadeIn 0.5s 1.5s backwards;
+  }
+
+  .container {
+    padding: 5rem 3rem;
+  }
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  .logo {
+    padding: 0;
+  }
+
+  .nav-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: #fff;
+    opacity: 0;
+    transition: all 0.2s ease;
+  }
+
+  .nav-wrapper ul {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+  }
+
+  .nav-wrapper ul li {
+    display: block;
+    float: none;
+    width: 100%;
+    text-align: right;
+    margin-bottom: 10px;
+  }
+
+  .nav-wrapper ul li:nth-child(1) a {
+    transition-delay: 0.2s;
+  }
+
+  .nav-wrapper ul li:nth-child(2) a {
+    transition-delay: 0.3s;
+  }
+
+  .nav-wrapper ul li:nth-child(3) a {
+    transition-delay: 0.4s;
+  }
+
+  .nav-wrapper ul li:not(:first-child) {
+    margin-left: 0;
+  }
+
+  .nav-wrapper ul li a {
+    padding: 10px 24px;
+    opacity: 0;
+    color: #000;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    transform: translateX(-20px);
+    transition: all 0.2s ease;
+  }
+
+  .nav-btn {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    display: block;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    z-index: 9999;
+    border-radius: 50%;
+  }
+
+  .nav-btn i {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: #000;
+    border-radius: 2px;
+    margin-left: 14px;
+  }
+
+  .nav-btn i:nth-child(1) {
+    margin-top: 16px;
+    opacity: 1;
+  }
+
+  .nav-btn i:nth-child(2) {
+    margin-top: 4px;
+    opacity: 1;
+  }
+
+  .nav-btn i:nth-child(3) {
+    margin-top: 4px;
+  }
+}
+
+#nav:checked + .nav-btn {
+  transform: rotate(45deg);
+}
+
+#nav:checked + .nav-btn i {
+  background: #000;
+  transition: transform 0.2s ease;
+}
+
+#nav:checked + .nav-btn i:nth-child(1) {
+  transition: translateY(6px) rotate(180deg);
+}
+
+#nav:checked + .nav-btn i:nth-child(2) {
+  opacity: 0;
+}
+#nav:checked + .nav-btn i:nth-child(3) {
+  transition: translateY(-6px) rotate(90deg);
+}
+
+#nav:checked ~ .nav-wrapper {
+  z-index: 9999;
+  opacity: 1;
+}
+
+#nav:checked ~ .nav-wrapper ul li a {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.hidden {
+  display: none;
+}
+
+.logo {
+  float: left;
+  padding: 8px;
+  margin-left: 16px;
+  margin-top: 8px;
+  font-family: "Bree Serif", serif;
+}
+
+.logo a {
+  color: rgb(43, 18, 18);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: 0px;
+  text-decoration: none;
+}
+
+nav ul {
+  float: right;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li:not(:first-child) {
+  margin-left: 48px;
+}
+
+nav ul li:last-child {
+  margin-right: 24px;
+}
+
+nav ul li a {
+  display: inline-block;
+  outline: none;
+  font-family: "Bree Serif", serif;
+  color: #333;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 18px;
+  letter-spacing: 1.2px;
+  font-weight: 600;
+}
